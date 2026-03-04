@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: support-search-service
+  opensearch:
+    host: localhost
+    port: 9200
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: support-search-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: false
+    listener:
+      ack-mode: MANUAL
+
+app:
+  security:
+    dev-mode: true
+
+server:
+  port: 8084
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
