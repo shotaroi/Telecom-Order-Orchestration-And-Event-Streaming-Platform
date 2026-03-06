@@ -1,0 +1,4 @@
+# Dev profile: relaxed security for local testing without IdP
+app:
+  security:
+    dev-mode: true
